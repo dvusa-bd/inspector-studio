@@ -1,0 +1,6 @@
+<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Inspector Companion</title><link rel="stylesheet" href="popup.css"></head><body><header><b>Inspector Studio</b><small>Browser Companion</small></header><main>
+<button id="inspect">Inspect active page</button><button id="resources">Capture resource timing</button>
+<label>CSS override<textarea id="css" placeholder="body { outline: 2px solid #6e8cff; }"></textarea></label><button id="applyCss">Apply CSS to active tab</button>
+<label>Change text by selector<input id="selector" placeholder="h1, #title, .heading"><input id="newText" placeholder="Replacement text"></label><button id="changeText">Apply text change</button>
+<label>Remove element by selector<input id="removeSelector" placeholder=".ad-banner"></label><button id="removeElement">Remove element</button>
+<pre id="output">Ready. Actions run only after you click.</pre></main><script src="popup.js"></script></body></html>
