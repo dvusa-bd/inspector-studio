@@ -1,0 +1,1 @@
+export class Router{constructor(render){this.render=render;this.current='home';window.addEventListener('hashchange',()=>this.go(location.hash.slice(1)||'home',false))}go(page,hash=true){this.current=page;if(hash)location.hash=page;this.render(page)} }
