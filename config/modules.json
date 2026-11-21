@@ -1,1 +1,45 @@
-{"version":1,"modules":[{"id":"userscripts","enabled":true},{"id":"js-workbench","enabled":true},{"id":"dev-console","enabled":true},{"id":"page-inspector","enabled":true},{"id":"network-monitor","enabled":true},{"id":"security-lab","enabled":true},{"id":"extension-kit","enabled":true},{"id":"diagnostics","enabled":true}]}
+{
+  "version": 1,
+  "modules": [
+    {
+      "id": "userscripts",
+      "enabled": true
+    },
+    {
+      "id": "js-workbench",
+      "enabled": true
+    },
+    {
+      "id": "dev-console",
+      "enabled": true
+    },
+    {
+      "id": "page-inspector",
+      "enabled": true
+    },
+    {
+      "id": "network-monitor",
+      "enabled": true
+    },
+    {
+      "id": "security-lab",
+      "enabled": true
+    },
+    {
+      "id": "extension-kit",
+      "enabled": true
+    },
+    {
+      "id": "diagnostics",
+      "enabled": true
+    },
+    {
+      "id": "web-intelligence",
+      "enabled": true
+    },
+    {
+      "id": "terminal-visual-lab",
+      "enabled": true
+    }
+  ]
+}
