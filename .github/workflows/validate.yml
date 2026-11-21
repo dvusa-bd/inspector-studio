@@ -16,4 +16,5 @@ jobs:
       - name: Validate JavaScript syntax
         run: |
           set -e
-          find src/js -type f -name '*.js' -print0 | xargs -0 -n1 node --check
+          find src/js extension -type f -name '*.js' -print0 | xargs -0 -n1 node --check
+          node -e "JSON.parse(require('fs').readFileSync('extension/manifest.json','utf8')); JSON.parse(require('fs').readFileSync('manifest.webmanifest','utf8')); JSON.parse(require('fs').readFileSync('config/modules.json','utf8'));"
