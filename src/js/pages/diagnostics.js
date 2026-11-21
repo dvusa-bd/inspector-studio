@@ -1,0 +1,1 @@
+export function diagnostics(){return '<div class="page-title">Browser Diagnostics</div><p class="page-desc">Browser feature availability and runtime environment.</p><div class="panel"><table class="table" id="diagnosticTable"></table></div>'}
