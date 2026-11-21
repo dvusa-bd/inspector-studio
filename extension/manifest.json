@@ -1,0 +1,24 @@
+{
+  "manifest_version": 3,
+  "name": "Inspector Studio Companion",
+  "version": "1.0.0",
+  "description": "User-triggered DOM inspection, visual changes and resource diagnostics for authorized pages.",
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "Inspector Studio"
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "permissions": [
+    "activeTab",
+    "scripting",
+    "storage",
+    "tabs"
+  ],
+  "host_permissions": [],
+  "optional_host_permissions": [
+    "http://*/*",
+    "https://*/*"
+  ]
+}
