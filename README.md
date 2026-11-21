@@ -1,35 +1,42 @@
 # Inspector Studio
 
-A mobile-first, local-first JavaScript and userscript workspace.
+A modular, mobile-first JavaScript and browser diagnostics workspace with an authorized security analysis toolkit.
 
-## Features
-- Userscript library: create, import, search, enable/disable, edit and delete scripts.
-- JavaScript editor: syntax validation, sandbox execution and source download.
-- Developer console: isolated iframe execution with captured console output and runtime errors.
-- Network log: records Fetch API requests initiated by this app's own page.
-- Diagnostics: browser capabilities, environment and navigation timing.
-- English and Bengali interface.
-- Local backup/export; no account or backend required.
+## Included modules
+- **Userscripts:** create, import, search, edit, enable/disable, delete and export scripts. Imported scripts are inert until explicitly executed.
+- **JavaScript Workbench:** source editing, syntax parsing, isolated execution, save and download.
+- **Developer Console:** console log/info/warn/error capture and runtime error output inside a sandboxed iframe.
+- **Page Inspector:** read-only metadata snapshot of the current Inspector Studio document.
+- **Network Monitor:** observes Fetch calls initiated by this application page.
+- **Security Lab:** passive HTTP security-header review (CORS permitting), local JWT decoding (no signature verification), Base64 and URL encoding utilities.
+- **Extension Kit:** generates a starter Manifest V3 JSON manifest.
+- **Diagnostics:** browser capabilities and environment information.
+- **Workspace:** English/Bengali selector, local backup/restore, responsive touch menu, service-worker cache and PWA manifest.
 
-## Run locally
-Serve this directory with any static HTTP server. For Termux:
+## Architecture
+- `index.html` — app shell and module entry point.
+- `src/css/` — design tokens and responsive UI.
+- `src/js/core/` — router, localization and local persistence.
+- `src/js/modules/` — reusable feature modules.
+- `src/js/pages/` — feature pages.
+- `config/modules.json` — module registry.
+- `sw.js` and `manifest.webmanifest` — offline/PWA support.
+- `docs/ARCHITECTURE.md` — design and security boundaries.
 
+## Run in Termux
 ```sh
 pkg install python -y
+git clone https://github.com/dvusa-bd/inspector-studio.git
 cd inspector-studio
 python -m http.server 8080
 ```
+Open `http://127.0.0.1:8080` on the same device.
 
-Open `http://127.0.0.1:8080`.
+## Vercel
+This is a static application. Import the repository into Vercel with the root directory set to `./`, no build command, and output directory left blank/default. Automatic deployment requires Git integration permission in the Vercel team.
 
-## Deploy
-Import this repository into Vercel. The project is static; no build command is required and the output directory is the repository root.
+## Security boundaries
+Use security features only on systems and browser contexts you own or are explicitly authorized to test. No exploit launcher, credential theft, stealth, access bypass or unauthorized injection is included. The sandboxed iframe is useful for isolated development but is not a hardened hostile-code execution boundary. The network view is not browser-wide packet capture and does not inspect other tabs, workers, XHR, HttpOnly cookies or DevTools Protocol traffic. Header analysis uses standard Fetch/CORS and cannot bypass browser policy. JWT decode is not JWT signature or claim validation. The Extension Kit creates a manifest template, not a complete store-ready extension package. Review generated code and permissions before use.
 
-## Security and scope
-Imported scripts are untrusted. Review code before executing it. The sandbox is an isolation boundary for casual testing, not a hardened hostile-code security boundary. This application cannot inspect other browser tabs, browser-wide traffic, HttpOnly cookies, remote DevTools protocols, or arbitrary third-party origins. The network panel observes Fetch calls made by this application page only. Browser extension APIs and cross-origin inspection require separately installed browser extensions and explicit permissions.
-
-## Persistence
-Scripts and editor content are stored in the current browser's localStorage. Export backups regularly. Clearing browser data removes locally stored workspace content.
-
-## Status
-This is the initial functional foundation. It is not yet a full IDE, browser extension, remote debugging client, or production security scanner.
+## Persistence and limitations
+Workspace data is stored in the current browser's localStorage. Export backups regularly. This release is a functional modular foundation, not a full Chrome DevTools replacement, remote debugger, full IDE, or production vulnerability scanner.
