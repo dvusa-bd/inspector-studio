@@ -40,6 +40,14 @@
     {
       "id": "terminal-visual-lab",
       "enabled": true
+    },
+    {
+      "id": "automation-center",
+      "enabled": true
+    },
+    {
+      "id": "chromium-companion-extension",
+      "enabled": true
     }
   ]
 }
